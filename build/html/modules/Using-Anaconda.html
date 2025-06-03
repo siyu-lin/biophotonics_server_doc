@@ -1,0 +1,161 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Using Anaconda in Server &mdash; Biophotonics Server Guide 1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=f2a433a1"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Introduction to Docker" href="Using-Docker-to-Run-Python-Code.html" />
+    <link rel="prev" title="Using USB Drives For Server" href="USB-Drives-For-Server.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Biophotonics Server Guide
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Modules:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Basic-commands.html">Basic Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Home.html">Welcome to the Biophotonics Server Wiki!</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Installation-and-Basic-Operations.html">Server Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Linux-Disk-Manipulations.html">Manipulating the Disks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Linux-GUI-Installation-and-Usage.html">Server GUI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Linux-Users-and-Groups-Management.html">Setting up groups and accounts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Running-Shell-Commands-in-Backend%3A-tmux.html">Running Shell Command in Backend</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SSH-Log%CE%93%C3%87%C3%89In-and-Log%CE%93%C3%87%C3%89Out.html">How to Log-In Via SSH</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SSH-Log%CE%93%C3%87%C3%89In-and-Log%CE%93%C3%87%C3%89Out.html#how-to-log-out-from-ssh">How to Log-Out from SSH</a></li>
+<li class="toctree-l1"><a class="reference internal" href="USB-Drives-For-Server.html">Using USB Drives For Server</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Using Anaconda in Server</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#make-sure-we-are-in-bash-terminal">Make sure we are in bash terminal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#to-use-anaconda">To use anaconda</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#we-recommend-creating-a-separate-conda-environment-for-each-project">We recommend creating a separate conda environment for each project</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#to-enter-the-virtual-environment">To enter the virtual environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#to-install-packages">To install packages</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Using-Docker-to-Run-Python-Code.html">Introduction to Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Using-Docker-to-Run-Python-Code.html#core-docker-architecture">Core Docker Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Using-Docker-to-Run-Python-Code.html#general-workflow">General Workflow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Using-MATLAB-in-Server.html">Using MATLab on Server</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Biophotonics Server Guide</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Using Anaconda in Server</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/modules/Using-Anaconda.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="using-anaconda-in-server">
+<h1>Using Anaconda in Server<a class="headerlink" href="#using-anaconda-in-server" title="Link to this heading"></a></h1>
+<section id="make-sure-we-are-in-bash-terminal">
+<h2>Make sure we are in bash terminal<a class="headerlink" href="#make-sure-we-are-in-bash-terminal" title="Link to this heading"></a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">bash</span>
+</pre></div>
+</div>
+</section>
+<section id="to-use-anaconda">
+<h2>To use anaconda<a class="headerlink" href="#to-use-anaconda" title="Link to this heading"></a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">source</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">anaconda3</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">activate</span>
+</pre></div>
+</div>
+</section>
+<section id="we-recommend-creating-a-separate-conda-environment-for-each-project">
+<h2>We recommend creating a separate conda environment for each project<a class="headerlink" href="#we-recommend-creating-a-separate-conda-environment-for-each-project" title="Link to this heading"></a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">create</span> <span class="o">--</span><span class="n">name</span> <span class="n">NAME</span>
+</pre></div>
+</div>
+</section>
+<section id="to-enter-the-virtual-environment">
+<h2>To enter the virtual environment<a class="headerlink" href="#to-enter-the-virtual-environment" title="Link to this heading"></a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">activate</span> <span class="n">NAME</span>
+</pre></div>
+</div>
+<p>You will see that the terminal has (NAME) at the beginning of your input line</p>
+</section>
+<section id="to-install-packages">
+<h2>To install packages<a class="headerlink" href="#to-install-packages" title="Link to this heading"></a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">install</span> <span class="n">PACKAGE</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="USB-Drives-For-Server.html" class="btn btn-neutral float-left" title="Using USB Drives For Server" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Using-Docker-to-Run-Python-Code.html" class="btn btn-neutral float-right" title="Introduction to Docker" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright .</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,200 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Setting up groups and accounts &mdash; Biophotonics Server Guide 1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=f2a433a1"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Running Shell Command in Backend" href="Running-Shell-Commands-in-Backend%3A-tmux.html" />
+    <link rel="prev" title="Server GUI" href="Linux-GUI-Installation-and-Usage.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Biophotonics Server Guide
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Modules:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Basic-commands.html">Basic Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Home.html">Welcome to the Biophotonics Server Wiki!</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Installation-and-Basic-Operations.html">Server Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Linux-Disk-Manipulations.html">Manipulating the Disks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Linux-GUI-Installation-and-Usage.html">Server GUI</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Setting up groups and accounts</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#sudo-how-to-create-a-group">(sudo) How to Create a Group</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#sudo-how-to-create-a-user-under-a-group">(sudo) How to Create a User Under a Group</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#checking-which-group-the-current-user-belongs-to">Checking which Group the Current User Belongs To</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#adding-a-new-group-that-a-user-is-belonged-to">Adding a new group that a user is belonged to</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Running-Shell-Commands-in-Backend%3A-tmux.html">Running Shell Command in Backend</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SSH-Log%CE%93%C3%87%C3%89In-and-Log%CE%93%C3%87%C3%89Out.html">How to Log-In Via SSH</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SSH-Log%CE%93%C3%87%C3%89In-and-Log%CE%93%C3%87%C3%89Out.html#how-to-log-out-from-ssh">How to Log-Out from SSH</a></li>
+<li class="toctree-l1"><a class="reference internal" href="USB-Drives-For-Server.html">Using USB Drives For Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Using-Anaconda.html">Using Anaconda in Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Using-Docker-to-Run-Python-Code.html">Introduction to Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Using-Docker-to-Run-Python-Code.html#core-docker-architecture">Core Docker Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Using-Docker-to-Run-Python-Code.html#general-workflow">General Workflow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Using-MATLAB-in-Server.html">Using MATLab on Server</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Biophotonics Server Guide</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Setting up groups and accounts</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/modules/Linux-Users-and-Groups-Management.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="setting-up-groups-and-accounts">
+<h1>Setting up groups and accounts<a class="headerlink" href="#setting-up-groups-and-accounts" title="Link to this heading"></a></h1>
+<section id="sudo-how-to-create-a-group">
+<h2>(sudo) How to Create a Group<a class="headerlink" href="#sudo-how-to-create-a-group" title="Link to this heading"></a></h2>
+<p>Enter the following command in admin account</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">groupadd</span> <span class="n">GROUPNAME</span>
+</pre></div>
+</div>
+<p>Ex.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">groupadd</span> <span class="n">yang_lab</span>
+</pre></div>
+</div>
+<p>If the user is going to use docker</p>
+<p>Add the user to the docker group by</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">usermod</span> <span class="o">-</span><span class="n">a</span> <span class="o">-</span><span class="n">G</span> <span class="n">docker</span> <span class="n">USERNAME</span>
+</pre></div>
+</div>
+</section>
+<section id="sudo-how-to-create-a-user-under-a-group">
+<h2>(sudo) How to Create a User Under a Group<a class="headerlink" href="#sudo-how-to-create-a-user-under-a-group" title="Link to this heading"></a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">useradd</span> <span class="o">-</span><span class="n">G</span> <span class="n">GROUPNAME</span> <span class="n">USERNAME</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">passwd</span> <span class="n">USERNAME</span>
+</pre></div>
+</div>
+<p>Setup the password when promped.</p>
+<p>Ex.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">useradd</span> <span class="o">-</span><span class="n">G</span> <span class="n">yang_lab</span> <span class="n">Haowen_Zhou</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">passwd</span> <span class="n">Haowen_Zhou</span>
+</pre></div>
+</div>
+<p>Create a Folder for Each User(sudo access)</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">/</span><span class="n">home</span>
+<span class="n">sudo</span> <span class="n">mkdir</span> <span class="n">USERNAME</span>
+</pre></div>
+</div>
+<p>Ex.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">/</span><span class="n">home</span>
+<span class="n">sudo</span> <span class="n">mkdir</span> <span class="n">Haowen_Zhou</span>
+</pre></div>
+</div>
+<p>Change ownership of Directory(chown –help)</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">chown</span> <span class="o">-</span><span class="n">R</span> <span class="n">USER_NAME</span> <span class="n">FOLDER_NAME</span>
+</pre></div>
+</div>
+</section>
+<section id="checking-which-group-the-current-user-belongs-to">
+<h2>Checking which Group the Current User Belongs To<a class="headerlink" href="#checking-which-group-the-current-user-belongs-to" title="Link to this heading"></a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">groups</span>
+</pre></div>
+</div>
+<p>or</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">groups</span> <span class="n">USERNAME</span>
+</pre></div>
+</div>
+<p>Ex.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">groups</span> <span class="n">Haowen_Zhou</span>
+</pre></div>
+</div>
+</section>
+<section id="adding-a-new-group-that-a-user-is-belonged-to">
+<h2>Adding a new group that a user is belonged to<a class="headerlink" href="#adding-a-new-group-that-a-user-is-belonged-to" title="Link to this heading"></a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">usermod</span> <span class="o">-</span><span class="n">a</span> <span class="o">-</span><span class="n">G</span> <span class="n">groupName</span> <span class="n">userName</span>
+</pre></div>
+</div>
+<p>Ex.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">usermod</span> <span class="o">-</span><span class="n">a</span> <span class="o">-</span><span class="n">G</span> <span class="n">docker</span> <span class="n">Haowen_Zhou</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="Linux-GUI-Installation-and-Usage.html" class="btn btn-neutral float-left" title="Server GUI" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Running-Shell-Commands-in-Backend%3A-tmux.html" class="btn btn-neutral float-right" title="Running Shell Command in Backend" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright .</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

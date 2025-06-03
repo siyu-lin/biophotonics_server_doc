@@ -1,0 +1,309 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Introduction to Docker &mdash; Biophotonics Server Guide 1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=f2a433a1"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Using MATLab on Server" href="Using-MATLAB-in-Server.html" />
+    <link rel="prev" title="Using Anaconda in Server" href="Using-Anaconda.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Biophotonics Server Guide
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Modules:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Basic-commands.html">Basic Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Home.html">Welcome to the Biophotonics Server Wiki!</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Installation-and-Basic-Operations.html">Server Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Linux-Disk-Manipulations.html">Manipulating the Disks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Linux-GUI-Installation-and-Usage.html">Server GUI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Linux-Users-and-Groups-Management.html">Setting up groups and accounts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Running-Shell-Commands-in-Backend%3A-tmux.html">Running Shell Command in Backend</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SSH-Log%CE%93%C3%87%C3%89In-and-Log%CE%93%C3%87%C3%89Out.html">How to Log-In Via SSH</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SSH-Log%CE%93%C3%87%C3%89In-and-Log%CE%93%C3%87%C3%89Out.html#how-to-log-out-from-ssh">How to Log-Out from SSH</a></li>
+<li class="toctree-l1"><a class="reference internal" href="USB-Drives-For-Server.html">Using USB Drives For Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Using-Anaconda.html">Using Anaconda in Server</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Introduction to Docker</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#what-is-docker">What is Docker?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#why-docker">Why Docker?</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#core-docker-architecture">Core Docker Architecture</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#docker-daemon">Docker daemon</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#docker-client">Docker client</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#docker-image">Docker image</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#dockerfile">Dockerfile</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#docker-container">Docker container</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#general-workflow">General Workflow</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#method-i">Method I</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#dealing-with-large-dataset">Dealing with Large Dataset</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Using-MATLAB-in-Server.html">Using MATLab on Server</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Biophotonics Server Guide</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Introduction to Docker</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/modules/Using-Docker-to-Run-Python-Code.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="introduction-to-docker">
+<h1>Introduction to Docker<a class="headerlink" href="#introduction-to-docker" title="Link to this heading"></a></h1>
+<p>Credit: This page is adapted from <a class="reference internal" href="#docs.docker.com/get-started/overview"><span class="xref myst">Docker</span></a></p>
+<p>Useful resources: <a class="reference external" href="https://towardsdatascience.com/how-docker-can-help-you-become-a-more-effective-data-scientist-7fc048ef91d5">Docker introductions</a></p>
+<section id="what-is-docker">
+<h2>What is Docker?<a class="headerlink" href="#what-is-docker" title="Link to this heading"></a></h2>
+<p>Docker is a platform that provides the ability to package and run an application in an <strong>isolated</strong> environment called a <em>container</em>. The intuitive way of thinking of a docker is that it can be considered to be an extremely lightweight virtual machine.</p>
+</section>
+<section id="why-docker">
+<h2>Why Docker?<a class="headerlink" href="#why-docker" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Lightweight: The <em>containers</em> contain everything needed to run the application.</p></li>
+<li><p>Fast: We can use more of the server capacity</p></li>
+<li><p>Portability: Making programs relatively cross-platform, and Sharing and management of projects and environment</p></li>
+<li><p>Reproducibility: Easy reinstallation</p></li>
+<li><p>Safety: It won’t mess up with the sudo access</p></li>
+</ul>
+</section>
+</section>
+<section id="core-docker-architecture">
+<h1>Core Docker Architecture<a class="headerlink" href="#core-docker-architecture" title="Link to this heading"></a></h1>
+<section id="docker-daemon">
+<h2>Docker daemon<a class="headerlink" href="#docker-daemon" title="Link to this heading"></a></h2>
+<p>The Docker daemon <code class="docutils literal notranslate"><span class="pre">dockerd</span></code> listens to our requests and operates/manages the Docker objects.</p>
+</section>
+<section id="docker-client">
+<h2>Docker client<a class="headerlink" href="#docker-client" title="Link to this heading"></a></h2>
+<p>The Docker client <code class="docutils literal notranslate"><span class="pre">docker</span></code> is basically <strong>us</strong>, which sends commands like <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">run</span></code> to <code class="docutils literal notranslate"><span class="pre">dockerd</span></code>.</p>
+</section>
+<section id="docker-image">
+<h2>Docker image<a class="headerlink" href="#docker-image" title="Link to this heading"></a></h2>
+<p>An image is a read-only template with instructions for creating a Docker container. Usually, an image is based on another image, with possible customization. For instance, we can base our image on the <code class="docutils literal notranslate"><span class="pre">pytorch/pytorch</span></code> image that is available to us on DockerHub, then add an additional package to it and run our own Python code. We can download public images from DockerHub, but almost all of the time, we need to make modifications and synthesize our own image with a <code class="docutils literal notranslate"><span class="pre">Dockerfile</span></code>.</p>
+<p>Building an image from a <code class="docutils literal notranslate"><span class="pre">Dockerfile</span></code></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">image</span> <span class="n">build</span> <span class="o">-</span><span class="n">t</span> <span class="n">IMAGENAME</span>
+</pre></div>
+</div>
+</section>
+<section id="dockerfile">
+<h2>Dockerfile<a class="headerlink" href="#dockerfile" title="Link to this heading"></a></h2>
+<p>We <code class="docutils literal notranslate"><span class="pre">build</span></code> an image from a Dockerfile.</p>
+<section id="example-dockerfile-1">
+<h3>Example Dockerfile 1<a class="headerlink" href="#example-dockerfile-1" title="Link to this heading"></a></h3>
+<p>Assume we have a file structure as follow:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">mnt</span><span class="o">/</span><span class="n">disk1</span><span class="o">/</span><span class="n">Steven_Lin</span><span class="o">/</span>
+<span class="o">|---</span> <span class="n">helloworld</span><span class="o">.</span><span class="n">py</span>
+<span class="o">|---</span> <span class="n">Dockerfile</span>
+</pre></div>
+</div>
+<p>We want to build an <em>image</em> that eventually lets us run the container which executes the <code class="docutils literal notranslate"><span class="pre">helloworld.py</span></code> file.
+A simple example of a <code class="docutils literal notranslate"><span class="pre">Dockerfile</span></code> that allows us to do that is as followed.</p>
+<div class="highlight-Dockerfile notranslate"><div class="highlight"><pre><span></span><span class="k">FROM</span><span class="w"> </span><span class="s">python:3.8-slim-buster</span>
+<span class="k">WORKDIR</span><span class="w"> </span><span class="s">/mnt/disk1/Steven_Lin/</span>
+<span class="k">COPY</span><span class="w">  </span>.<span class="w"> </span>.
+<span class="k">CMD</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="s2">&quot;python3&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;helloworld.py&quot;</span><span class="w"> </span><span class="p">]</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">FROM</span></code> allows us to choose an image that we are building upon</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">WORKDIR</span></code> allows us to set our current working directory</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">COPY</span> <span class="pre">.</span> <span class="pre">.</span></code> here is tricky, the two dots have completely different meaning. The first argument after <code class="docutils literal notranslate"><span class="pre">COPY</span></code> represents the path to what we want to copy relative to the <code class="docutils literal notranslate"><span class="pre">WORKDIR</span></code>. The argument being a dot <code class="docutils literal notranslate"><span class="pre">.</span></code> means that we want to copy everything in <code class="docutils literal notranslate"><span class="pre">WORKDIR</span></code>. The second argument tells us where to paste the copied files. When we build an image, we are not building the image here in our working directory, instead, we are building it ‘elsewhere’. The second dot <code class="docutils literal notranslate"><span class="pre">.</span></code> means that we are copying everything to that ‘elsewhere’ directly.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CMD</span> <span class="pre">[</span> <span class="pre">&quot;python3&quot;,</span> <span class="pre">&quot;helloworld.py&quot;</span> <span class="pre">]</span></code> tells the image that we want to execute the <code class="docutils literal notranslate"><span class="pre">helloworld.py</span></code> file in the <strong>image directory, i.e., “elsewhere”</strong>. We can execute it because we just copied our file over there.</p></li>
+</ul>
+</section>
+<section id="example-dockerfile-2">
+<h3>Example Dockerfile 2<a class="headerlink" href="#example-dockerfile-2" title="Link to this heading"></a></h3>
+<p>To consolidate the notion of the two directory. Consider the following Dockerfile that will give us the same result.</p>
+<div class="highlight-Dockerfile notranslate"><div class="highlight"><pre><span></span><span class="k">FROM</span><span class="w"> </span><span class="s">python:3.8-slim-buster</span>
+<span class="k">WORKDIR</span><span class="w"> </span><span class="s">/mnt/disk1/Steven_Lin/</span>
+<span class="k">COPY</span><span class="w">  </span>helloworld.py<span class="w"> </span>/code/
+<span class="k">CMD</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="s2">&quot;python3&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;/code/helloworld.py&quot;</span><span class="w"> </span><span class="p">]</span>
+</pre></div>
+</div>
+<p>We explicity copy the <code class="docutils literal notranslate"><span class="pre">helloworld.py</span></code> in <code class="docutils literal notranslate"><span class="pre">WORKDIR</span></code> into the <code class="docutils literal notranslate"><span class="pre">/code/</span></code> folder in our image directory.
+If we now run</p>
+<div class="highlight-Dockerfile notranslate"><div class="highlight"><pre><span></span><span class="k">CMD</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="s2">&quot;python3&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;helloworld.py&quot;</span><span class="w"> </span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Our <code class="docutils literal notranslate"><span class="pre">dockerd</span></code> will not be able to find the <code class="docutils literal notranslate"><span class="pre">helloworld.py</span></code> file there anymore. Instead, we need to specify the directory.</p>
+</section>
+</section>
+<section id="docker-container">
+<h2>Docker container<a class="headerlink" href="#docker-container" title="Link to this heading"></a></h2>
+<p>A <em>Docker container</em> is a runnable instance of an image. In essence, when we are running a code using Docker, we are actually running the <em>Docker container</em> that contains the code ( and all other required dependencies, commands, etc.).</p>
+<p>Ex.</p>
+<p>Assume that we have an image called <code class="docutils literal notranslate"><span class="pre">my-image</span></code>,</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">run</span> <span class="n">my</span><span class="o">-</span><span class="n">image</span>
+</pre></div>
+</div>
+<p>runs a <em>container</em> that corresponds to this image.</p>
+<p>Some flags that are commonly used with <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">run</span></code>:</p>
+<ul class="simple">
+<li><p>Detach <code class="docutils literal notranslate"><span class="pre">-d</span></code> allows us to run the code in the backend, so we can still use our shell/bash for commands. We are also free to sign off and log back in later to check the progress or results.</p></li>
+</ul>
+</section>
+</section>
+<section id="general-workflow">
+<h1>General Workflow<a class="headerlink" href="#general-workflow" title="Link to this heading"></a></h1>
+<section id="method-i">
+<h2>Method I<a class="headerlink" href="#method-i" title="Link to this heading"></a></h2>
+<p>Pull docker from a standard docker image on <a class="reference external" href="https://login.docker.com/u/login/identifier?state=hKFo2SB0QTJvaGdxZUdvd19HNVlOTnRYQUZFTXVhaFRQbllqRaFur3VuaXZlcnNhbC1sb2dpbqN0aWTZIF9hOU9pSEM4Tkh3YUJPVFl2WFl3anRVVXhyaHlKc3p1o2NpZNkgbHZlOUdHbDhKdFNVcm5lUTFFVnVDMGxiakhkaTluYjk">DockerHub</a> (Sign up an account if needed).</p>
+<p>Ex.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">pull</span> <span class="n">pytorch</span><span class="o">/</span><span class="n">pytorch</span><span class="p">:</span><span class="mf">2.1.0</span><span class="o">-</span><span class="n">cuda11</span><span class="mf">.8</span><span class="o">-</span><span class="n">cudnn8</span><span class="o">-</span><span class="n">devel</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">pull</span> <span class="p">[</span><span class="n">OPTIONS</span><span class="p">]</span> <span class="n">NAME</span><span class="p">[:</span><span class="n">TAG</span><span class="o">|</span><span class="nd">@DIGEST</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Then, you need to create a container from image:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">run</span> <span class="o">-</span><span class="n">it</span> <span class="p">[</span><span class="n">IMAGE</span><span class="o">-</span><span class="n">ID</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>You can find [IMAGE-ID] by:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">images</span>
+</pre></div>
+</div>
+<p>Then, install the packages that you need</p>
+<p>Ex.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">apt</span> <span class="n">update</span> <span class="o">&amp;&amp;</span> <span class="n">apt</span> <span class="n">install</span> <span class="o">-</span><span class="n">y</span> <span class="n">wget</span> <span class="n">unzip</span> <span class="n">curl</span> <span class="n">bzip2</span> <span class="n">git</span> <span class="n">vim</span>
+</pre></div>
+</div>
+<p>After you make changes to the docker container, you can detach the docker container and commit the changes.</p>
+<p>To detach the docker container (when you are in docker) use <code class="docutils literal notranslate"><span class="pre">control+p+q</span></code> hotkey.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">commit</span> <span class="p">[</span><span class="n">OPTIONS</span><span class="p">]</span> <span class="n">CONTAINER</span> <span class="p">[</span><span class="n">REPOSITORY</span><span class="p">[:</span><span class="n">TAG</span><span class="p">]]</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ docker images    
+REPOSITORY                        TAG                 ID                  CREATED             VIRTUAL SIZE
+SvenDowideit/testimage            version3            f5283438590d 
+
+$ docker container ls
+
+$ docker commit containerID  SvenDowideit/testimage:version3
+</pre></div>
+</div>
+<p>After committing the changes, you can push the docker image to your DockerHub account</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">push</span> <span class="p">[</span><span class="n">OPTIONS</span><span class="p">]</span> <span class="n">NAME</span><span class="p">[:</span><span class="n">TAG</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Then, you can run your docker.</p>
+<p>Some advanced tips for running a docker:</p>
+<p><strong>In the user folder</strong>, create a .bashrc file.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">touch</span> <span class="o">.</span><span class="n">bashrc</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">vim</span> <span class="o">.</span><span class="n">bashrc</span>
+</pre></div>
+</div>
+<p>If you need to use multi-gpu processing, you do need to add a large shared memory size <code class="docutils literal notranslate"><span class="pre">--shm-size=16g</span></code></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">alias</span> <span class="n">CreateXXXXContainer</span><span class="o">=</span><span class="s1">&#39;docker run -it </span><span class="se">\</span>
+<span class="s1">        --gpus all </span><span class="se">\</span>
+<span class="s1">        --name Container_Name </span><span class="se">\</span>
+<span class="s1">        --hostname USER_NAME </span><span class="se">\</span>
+<span class="s1">        --shm-size=16g \ </span>
+        <span class="o">-</span><span class="n">p</span> <span class="mi">5081</span><span class="p">:</span><span class="mi">5081</span> \
+        <span class="o">-</span><span class="n">v</span> <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">hostmachine</span><span class="o">/</span><span class="p">:</span><span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">inside</span><span class="o">/</span><span class="n">docker</span><span class="o">-</span><span class="n">container</span><span class="o">/</span> \
+        <span class="p">[</span><span class="n">REPOSITORY</span><span class="p">[:</span><span class="n">TAG</span><span class="p">]]</span> \
+        <span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">bash</span><span class="s1">&#39;</span>
+</pre></div>
+</div>
+<p>after editing the .bashrc file, update the file</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">source</span> <span class="o">.</span><span class="n">bashrc</span>
+</pre></div>
+</div>
+<p>Then running the container can use:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">CreateXXXXContainer</span>
+</pre></div>
+</div>
+</section>
+<section id="dealing-with-large-dataset">
+<h2>Dealing with Large Dataset<a class="headerlink" href="#dealing-with-large-dataset" title="Link to this heading"></a></h2>
+<p>Use the volume <code class="docutils literal notranslate"><span class="pre">-v</span></code> flag.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="Using-Anaconda.html" class="btn btn-neutral float-left" title="Using Anaconda in Server" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Using-MATLAB-in-Server.html" class="btn btn-neutral float-right" title="Using MATLab on Server" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright .</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

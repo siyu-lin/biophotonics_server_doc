@@ -17,3 +17,10 @@ This is the backbone of the biophotonics server wiki at: [biophotonics-server-do
 1. Add a ``` .md ``` file ``` /source/modules/NEWFILE.md ```.
 2. Add the page to the ``` source/index.rst ``` as ``` modules/NEWFILE ``` in the desired section.
 3. Save and preview the website.
+
+
+### Deploying the website
+1. Preview and confirm no errors locally.
+2. Push to the GitHub repository.
+3. Website will be compiled and deployed automatically at [https://app.readthedocs.org/projects/biophotonics-server-doc/](app.readthedocs.org/projects/biophotonics-server-doc/).
+4. Confirm no erros on deployment.

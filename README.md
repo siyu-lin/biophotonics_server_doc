@@ -10,7 +10,7 @@ This is the backbone of the biophotonics server wiki at: [biophotonics-server-do
 
 3. Run ``` sphinx-autobuild source build/html ``` and you should be be prompted to preview the website at ``` 127.0.0.1:8000 ```.
 
-4. The first time you might need to install required packages ``` pip install -r /build/requirements.txt ```.
+4. The first time you might need to install required packages ``` pip install -r /source/requirements.txt ```.
 
 
 ### Adding a new page
@@ -23,4 +23,4 @@ This is the backbone of the biophotonics server wiki at: [biophotonics-server-do
 1. Preview and confirm no errors locally.
 2. Push to the GitHub repository.
 3. Website will be compiled and deployed automatically at [https://app.readthedocs.org/projects/biophotonics-server-doc/](app.readthedocs.org/projects/biophotonics-server-doc/).
-4. Confirm no erros on deployment.
+4. Confirm no errors on deployment.
